@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -64,8 +65,9 @@ public class Hangman {
                     wrongCount = 6;
                     winOrLoss = true;
                 } else {
-                    blankWord = blankWord.substring(0, idx) + guess.toUpperCase() + blankWord.substring(idx + 1);
-                    hangman(wrongCount);
+                    if(word.contains(guess)){
+                        blankWord.replace(blankWord.substring(idx,idx+1), guess);
+                    }
                 }
             }
         }
@@ -179,3 +181,4 @@ public class Hangman {
 
     }
 }
+
